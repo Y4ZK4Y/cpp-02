@@ -4,7 +4,7 @@ SRC := Fixed.cpp main.cpp
 OBJ := $(SRC:.cpp=.o)
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -pedantic
 
 RM = /bin/rm -rf
 

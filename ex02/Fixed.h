@@ -41,10 +41,10 @@ public:
     Fixed operator/(const Fixed& other) const;
 
     // Increment/decrement operators
-    Fixed& operator++(); // pre increment
-    Fixed operator++(int); // post increment
-    Fixed& operator--(); //pre decrement
-    Fixed operator--(int); // post decrement
+    Fixed& operator++(); // pre-increment
+    Fixed operator++(int); // post-increment
+    Fixed& operator--(); //pre-decrement
+    Fixed operator--(int); // post-decrement
 
     // min/max functions
     static Fixed& min(Fixed& a, Fixed& b);
@@ -52,7 +52,8 @@ public:
     static Fixed& max(Fixed& a, Fixed& b);
     static const Fixed& max(const Fixed& a, const Fixed& b);
 
-    friend std::ostream& operator<<(std::ostream& out, const Fixed& fixed); // ?
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& object);
 
 #endif

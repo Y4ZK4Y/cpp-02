@@ -1,6 +1,6 @@
 #include "Fixed.h"
 #include <iostream>
-#include <cmath> // for roundf
+#include <cmath>
 
 Fixed::Fixed(): fixedPointNumber(0) {
     std::cout << "Default constructor." << std::endl;
@@ -21,12 +21,12 @@ float Fixed::toFloat(void) const {
 }
 
 int Fixed::toInt(void) const {
-    return fixedPointNumber >> fractionalBits; //shidt fixedpoint to right by fractionalbits
+    return fixedPointNumber >> fractionalBits; //shift fixedpoint to right by fractionalbits
 }
 
 Fixed::Fixed(const Fixed& other) {
     std::cout << "Copy constructor." << std::endl;
-    *this = other; // ? 
+    *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
@@ -64,15 +64,19 @@ bool Fixed::operator>(const Fixed& other) const {
 bool Fixed::operator<(const Fixed& other) const {
     return fixedPointNumber < other.fixedPointNumber;
 }
+
 bool Fixed::operator>=(const Fixed& other) const {
     return fixedPointNumber >= other.fixedPointNumber;
 }
+
 bool Fixed::operator<=(const Fixed& other) const {
     return fixedPointNumber <= other.fixedPointNumber;
 }
+
 bool Fixed::operator==(const Fixed& other) const {
     return fixedPointNumber == other.fixedPointNumber;
 }
+
 bool Fixed::operator!=(const Fixed& other) const {
     return fixedPointNumber != other.fixedPointNumber;
 }
@@ -119,13 +123,12 @@ Fixed Fixed::operator--(int) {
     return temp;
 }
 
-// Min/max functions
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
-    return (a > b) ? a: b;
+    return (a > b) ? b: a;
 }
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
-    return (a > b)? a: b;
+    return (a > b)? b: a;
 }
 
 Fixed& Fixed::max(Fixed& a, Fixed& b) {

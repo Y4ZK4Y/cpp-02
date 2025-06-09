@@ -20,12 +20,12 @@ float Fixed::toFloat(void) const {
 }
 
 int Fixed::toInt(void) const {
-    return fixedPointNumber >> fractionalBits; //shidt fixedpoint to right by fractionalbits
+    return fixedPointNumber >> fractionalBits; //shift fixedpoint to right by fractionalbits
 }
 
 Fixed::Fixed(const Fixed& other) {
     std::cout << "Copy constructor in the house." << std::endl;
-    *this = other; // ? 
+    *this = other; // pointer to the current object
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
@@ -50,6 +50,7 @@ void Fixed::setRawBits(int const raw) {
     fixedPointNumber = raw;
 }
 
+// non-member function
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
     out << fixed.toFloat();
     return out;
